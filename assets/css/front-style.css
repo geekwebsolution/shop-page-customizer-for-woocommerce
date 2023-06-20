@@ -1,0 +1,17 @@
+/* .wspc-loop-description-wp,
+.wspc-stock-remaining {
+    padding: 10px 15px;
+} */
+
+body ul.products li.product .button.shop-now-btn {
+    text-align: center;
+}
+
+
+/* body ul.products li.product .woocommerce-loop-product__title {
+    display: none;
+} */
+
+a.btn.button.shop-now-btn.addtocartbutton {
+    position: relative;
+}
