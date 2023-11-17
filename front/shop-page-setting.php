@@ -5,7 +5,7 @@ if (!class_exists('wspc_front_shop_page_settings') ) {
    
     class wspc_front_shop_page_settings{
 
-
+        public $filters;
         public function __construct() {
 
             add_action( 'woocommerce_init', array( $this, 'wspc_customizations_loop' ) );

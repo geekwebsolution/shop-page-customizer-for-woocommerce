@@ -1,7 +1,6 @@
 <?php
 if (!class_exists('wspc_shop_page_customizer_settings')) {
     $wspc_list_page_options = get_option('wspc_shop_page_options');
-
    
     class wspc_shop_page_customizer_settings{
 
@@ -9,9 +8,7 @@ if (!class_exists('wspc_shop_page_customizer_settings')) {
             add_action('admin_init', array($this, 'shop_page_register_settings_init'));
         }
 
-
         function shop_page_setting_form_option(){ ?>
-
             <form action="options.php?tab=wspc-shop-customizer" method="post">
 
                 <?php  settings_fields('wspc-loop-setting-options');   ?>
@@ -23,13 +20,9 @@ if (!class_exists('wspc_shop_page_customizer_settings')) {
                 <div class="wspc-section">
                     <?php do_settings_sections('wspc_hide_shop_page_option_section'); ?>
                 </div>
-
-               
                 <?php
-               
                 submit_button('Save Settings');
                 ?>
-
             </form>
 
             <?php
@@ -126,12 +119,8 @@ if (!class_exists('wspc_shop_page_customizer_settings')) {
                 [
                     'label_for'     => 'hide_sorting_results',
                 ]
-            );           
-        
-
+            );
             /** Hide Shop Page Option section end */
-
-           
         }
 
         public function layout_html($args){
@@ -192,5 +181,4 @@ if (!class_exists('wspc_shop_page_customizer_settings')) {
             return $new_input;
         }
     }
-
 }

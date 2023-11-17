@@ -3,8 +3,8 @@
 Plugin Name: Shop Page Customizer for WooCommerce
 Description: Woocommerce shop page customizer is an excellent plugin to customize the WooCommerce shop page. It allows you to edit your product title, price add to cart button, sale flash in a few clicks.
 Author: Geek Code Lab
-Version: 1.4
-WC tested up to: 7.7.0
+Version: 1.5
+WC tested up to: 8.2.2
 Author URI: https://geekcodelab.com/
 Text Domain : woocommerce-shop-page-customizer
 
@@ -20,7 +20,7 @@ if (!defined("WSPC_PLUGIN_URL"))
     
     define("WSPC_PLUGIN_URL", plugins_url() . '/' . basename(dirname(__FILE__)));
     
-define("wspc_BUILD", '1.4');
+define("wspc_BUILD", '1.5');
 
 
 register_activation_hook( __FILE__, 'wspc_plugin_active_woocommerce_shop_page_customizer' );
@@ -31,18 +31,14 @@ function wspc_plugin_active_woocommerce_shop_page_customizer(){
 	}
 	if (is_plugin_active( 'shop-page-customizer-for-woo-pro/shop-page-customizer-for-woo-pro.php' ) ) {		
 		deactivate_plugins('shop-page-customizer-for-woo-pro/shop-page-customizer-for-woo-pro.php');
-   	} 
-
+   	}
 }
-
 
 require_once( WSPC_PLUGIN_DIR_PATH .'admin/options.php');
 require_once( WSPC_PLUGIN_DIR_PATH . 'admin/product-loop-description-meta.php' );
 require_once( WSPC_PLUGIN_DIR_PATH .'front/index.php');
 require_once( WSPC_PLUGIN_DIR_PATH .'/customizer/customizer-library/customizer-library.php');
 require_once( WSPC_PLUGIN_DIR_PATH .'/customizer/styles.php');
-
-
 
 
 add_action('admin_print_styles', 'wspc_admin_style');
@@ -65,8 +61,6 @@ function wspc_include_front_script()
     // wp_enqueue_script('wspc_donation_script', WSPC_PLUGIN_URL.'/assets/js/wspc_front_script.js', array('jquery'), wspc_BUILD);
 }
 
-
-
 function wspc_plugin_add_settings_link($links)
 {
 	$support_link = '<a href="https://geekcodelab.com/contact/"  target="_blank" >' . __('Support') . '</a>';
@@ -81,3 +75,13 @@ function wspc_plugin_add_settings_link($links)
 }
 $plugin = plugin_basename(__FILE__);
 add_filter("plugin_action_links_$plugin", 'wspc_plugin_add_settings_link');
+
+/**
+ * Added HPOS support for woocommerce
+ */
+add_action( 'before_woocommerce_init', 'wspc_before_woocommerce_init' );
+function wspc_before_woocommerce_init() {
+    if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+	}
+}

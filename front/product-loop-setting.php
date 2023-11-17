@@ -1,22 +1,16 @@
-<?php 
-
-
+<?php
 if (!class_exists('wspc_front_product_loop_settings')) {
     $wspc_product_loop_options = get_option('wspc_product_loop_options');
 
-   
     class wspc_front_product_loop_settings{
-
-
+        
+        public $filters;
         public function __construct() {
-
             add_action( 'woocommerce_init', array( $this, 'wspc_customizations_loop' ) );
         }
         
         public function wspc_customizations_loop() {
-
-            $this->filters = get_option( 'wspc_product_loop_options' );
-    
+            $this->filters = get_option( 'wspc_product_loop_options' );    
             if ( ! empty( $this->filters ) ) {
  
                 foreach ( $this->filters as $filter_name => $filter_value ) {
@@ -126,17 +120,12 @@ if (!class_exists('wspc_front_product_loop_settings')) {
                                 
                                 }
                             },30);
-                        }
-                    
-                    }else{
-                      
+                        }                    
+                    }else{                      
                         add_filter( 'woocommerce_product_add_to_cart_text', array( $this, 'customize_add_to_cart_text' ), 50, 2 );
                     }
              
-                }
-
-                
-      
+                }      
             }
         }
 
@@ -146,9 +135,7 @@ if (!class_exists('wspc_front_product_loop_settings')) {
             $shop_btn_text = "Shop Now";
 
             $stock_html = sprintf('<a href="%s" class="btn button shop-now-btn addtocartbutton">%s</a>', $link , $shop_btn_text, 'woocommerce-shop-page-customizer' );
-            _e($stock_html,'woocommerce-shop-page-customizer');
-
-                
+            _e($stock_html,'woocommerce-shop-page-customizer');                
         }
 
         public function customize_add_to_cart_text( $text, $product ) {
@@ -180,13 +167,9 @@ if (!class_exists('wspc_front_product_loop_settings')) {
         }
 
         public function customize_woocommerce_sale_flash( $html, $_, $product ) {
-
-            $text = '';   
- 
+            $text = '';
     
             $text = $this->filters['sale_flashs_btn'];
-              
-
             if ( false !== strpos( $text, '{percent}' ) ) {
     
                 $percent = $this->get_sale_percentage( $product );
@@ -225,8 +208,7 @@ if (!class_exists('wspc_front_product_loop_settings')) {
                     $percentage = count( $child_sale_percents ) > 1 ? sprintf( esc_html__( 'up to %s', 'woocommerce-customizer' ), max( $child_sale_percents ) ) : current( $child_sale_percents );
                 }
     
-            } else {
-    
+            } else {    
                 $percentage = $this->calculate_sale_percentage( $product->get_regular_price(), $product->get_sale_price() );
             }
     
@@ -246,8 +228,6 @@ if (!class_exists('wspc_front_product_loop_settings')) {
     
             return $percent;
         }
-    
     }
-
 }
 ?>

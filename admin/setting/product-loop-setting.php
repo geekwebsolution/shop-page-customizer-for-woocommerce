@@ -1,14 +1,12 @@
 <?php
 if (!class_exists('wspc_product_loop_settings')) {
     $wspc_product_loop_options = get_option('wspc_product_loop_options');
-
    
     class wspc_product_loop_settings{
 
         public function __construct(){       
             add_action('admin_init', array($this, 'loop_register_settings_init'));
         }
-
 
         function loop_shop_page_customize_callback(){ ?>
             <form action="options.php" method="post">
@@ -34,15 +32,10 @@ if (!class_exists('wspc_product_loop_settings')) {
                 <div class="wspc-section">
                     <?php do_settings_sections('wspc_stock_quantity_manage_section'); ?>
                 </div>
-
-
                 <?php
-               
                 submit_button('Save Settings');
                 ?>
-
             </form>
-
             <?php
         }
 
@@ -206,17 +199,6 @@ if (!class_exists('wspc_product_loop_settings')) {
                     'label_for'     => 'hide_loop_rating',
                 ]
             );
-
-            // add_settings_field(
-            //     'hide_loop_categorie_label',
-            //     __('Hide Categorie', 'woocommerce-shop-page-customizer'),
-            //     array($this, 'hide_product_meta_html'),
-            //     'wspc_loop_hide_meta_section',
-            //     'wspc_hide_meta_setting',
-            //     [
-            //         'label_for'     => 'hide_loop_categorie',
-            //     ]
-            // );
 
             add_settings_field(
                 'hide_loop_image_label',

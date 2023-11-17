@@ -1,12 +1,6 @@
 <?php
-
-
-
-
-
 class wspc_admin_product_page_meta_box
 {
-
     /**
      * Constructor.
      */
@@ -61,7 +55,6 @@ class wspc_admin_product_page_meta_box
                 ?>
             </div>
         </div>
-
         <?php
     }
 
@@ -94,10 +87,7 @@ class wspc_admin_product_page_meta_box
         }
 
         $content = wp_kses_allowed_html(htmlentities($_POST['wspc_loop_content']));
-
-        // update_post_meta($post_id, 'wspc_loop_description', $content);
     }
 }
-
 new wspc_admin_product_page_meta_box();
 ?>

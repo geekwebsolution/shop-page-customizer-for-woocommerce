@@ -1,16 +1,12 @@
 <?php
 if (!class_exists('wspc_design_elements_settings')) {
     $wspc_des_ele_options = get_option('wspc_desgin_elements_options');
-
-
-
    
-    class wspc_design_elements_settings{
+    class wspc_design_elements_settings {
 
         public function __construct(){       
             add_action('admin_init', array($this, 'design_elements_register_settings_init'));
         }
-
 
         function design_elements_setting_form_option(){ ?>
 
@@ -389,12 +385,7 @@ if (!class_exists('wspc_design_elements_settings')) {
                     'description'   => 'Change product price font size.'
                 ]
             );
-
             /** Customize Product Price section end */
-
-        
-
-           
         }
 
         public function select_color_html($args){
@@ -412,10 +403,7 @@ if (!class_exists('wspc_design_elements_settings')) {
         public function layout_html($args){
             global $wspc_des_ele_options;
 
-            $value = isset($wspc_des_ele_options[$args['label_for']]) ? $wspc_des_ele_options[$args['label_for']] : '';
-
-
-            ?>
+            $value = isset($wspc_des_ele_options[$args['label_for']]) ? $wspc_des_ele_options[$args['label_for']] : ''; ?>
             <input type="number" name="wspc_desgin_elements_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>">
             <p class="wspc-input-note"><?php esc_attr_e($args['description'],'woocommerce-shop-page-customizer') ?></p>
             <?php
@@ -424,23 +412,15 @@ if (!class_exists('wspc_design_elements_settings')) {
         public function font_weight_html($args){
             global $wspc_des_ele_options;
 
-            $value = isset($wspc_des_ele_options[$args['label_for']]) ? $wspc_des_ele_options[$args['label_for']] : '';
-
-
-            ?>
+            $value = isset($wspc_des_ele_options[$args['label_for']]) ? $wspc_des_ele_options[$args['label_for']] : ''; ?>
             <input type="number" name="wspc_desgin_elements_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" min="100" max="700" step="100" value="<?php _e($value); ?>">
             <p class="wspc-input-note"><?php esc_attr_e($args['description'],'woocommerce-shop-page-customizer') ?></p>
             <?php
         }
 
-
-
-
         public function sanitize_settings($input)
         {
             $new_input = array();
-
-
             if (isset($input['cart_btn_border_radius']) && !empty($input['cart_btn_border_radius'])) {
 
                 $new_input['cart_btn_border_radius'] = sanitize_text_field($input['cart_btn_border_radius']);
@@ -504,12 +484,8 @@ if (!class_exists('wspc_design_elements_settings')) {
             if (isset($input['product_price_font_size']) && !empty($input['product_price_font_size'])) {
 
                 $new_input['product_price_font_size'] = sanitize_text_field($input['product_price_font_size']);
-            }
-            
-
-            
+            }            
             return $new_input;
         }
     }
-
 }

@@ -1,11 +1,6 @@
 <?php
-if (!class_exists('wspc_get_pro_version')) {
-
-
-   
-    class wspc_get_pro_version{
-
-
+if (!class_exists('wspc_get_pro_version')) {   
+    class wspc_get_pro_version {
  
         function get_pro_version_list(){ ?>
 
@@ -33,16 +28,9 @@ if (!class_exists('wspc_get_pro_version')) {
                         <a href="https://geekcodelab.com/wordpress-plugins/shop-page-customizer-for-woocommerce-pro" title="Upgrade to Premium" class="wspc-premium-btn" target="_blank"><?php _e('Upgrade to Premium','woocommerce-shop-page-customizer'); ?></a>
                     </div>
                 </div>
-
             </form>
-
             <?php
         }
-
- 
-
-
-        
     }
 
 }

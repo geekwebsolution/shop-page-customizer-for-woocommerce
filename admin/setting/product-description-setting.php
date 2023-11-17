@@ -2,13 +2,11 @@
 if (!class_exists('wspc_product_description_settings')) {
     $wspc_loop_description_options = get_option('wspc_product_loop_description_options');
 
-   
     class wspc_product_description_settings{
 
         public function __construct(){       
             add_action('admin_init', array($this, 'product_description_register_settings_init'));
         }
-
 
         function product_description_setting_form_option(){ ?>
 
@@ -29,7 +27,6 @@ if (!class_exists('wspc_product_description_settings')) {
                
                 // submit_button('Save Settings');
                 ?>
-
             </form>
 
             <?php
@@ -150,11 +147,7 @@ if (!class_exists('wspc_product_description_settings')) {
                 ]
             );
 
-            /** Product Description Style Settings section end */
-
-            
-
-           
+            /** Product Description Style Settings section end */           
         }
 
         public function alphabets_limit_html($args){
@@ -293,8 +286,6 @@ if (!class_exists('wspc_product_description_settings')) {
             <p  class="wspc-input-note"><?php esc_attr_e($args['description'],'woocommerce-shop-page-customizer') ?></p>
             <?php
         }
-
-
 
         public function sanitize_settings($input){
             $new_input = array();

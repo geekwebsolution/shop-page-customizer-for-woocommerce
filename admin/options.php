@@ -9,7 +9,6 @@ $default_tab = null;
 $tab = "";
 $tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : $default_tab;
 
-
 if (!class_exists('wspc_shop_page_settings')) {
 
 
@@ -39,13 +38,10 @@ if (!class_exists('wspc_shop_page_settings')) {
         public function __construct(){
             add_action('admin_menu',  array($this, 'wspc_admin_menu_donation_setting_page'));            
         }
-        
-        
 
-    function wspc_admin_menu_donation_setting_page(){
-        
-        add_submenu_page('woocommerce', 'Shop Page Customizer for WooCommerce', 'Shop Page Customizer for WooCommerce', 'manage_options', 'wspc-option-page', array($this, 'shop_page_customize_callback'));
-    }
+        function wspc_admin_menu_donation_setting_page(){
+            add_submenu_page('woocommerce', 'Shop Page Customizer for WooCommerce', 'Shop Page Customizer for WooCommerce', 'manage_options', 'wspc-option-page', array($this, 'shop_page_customize_callback'));
+        }
         
         function shop_page_customize_callback()
         {
@@ -71,27 +67,23 @@ if (!class_exists('wspc_shop_page_settings')) {
                             </ul>
                         </div>
 
-                        <div class="wspc-tabing-option">
-                           
+                        <div class="wspc-tabing-option">                           
                             <?php if ($tab == null) { 
 
-                                $loop  = new wspc_product_loop_settings();    
+                                $loop  = new wspc_product_loop_settings();
                                 $loop->loop_shop_page_customize_callback();
-
                             }
                             
                             if ($tab == "wspc-shop-customizer") {
                                 
                                 $shop_page_class  = new wspc_shop_page_customizer_settings();                                
                                 $shop_page_class->shop_page_setting_form_option();
-
                             }
                             
                             if ($tab == "wspc-design-elements") {
                             
                                 $design_class  = new wspc_design_elements_settings();
                                 $design_class->design_elements_setting_form_option();
-
                             }
                             
                             
@@ -99,7 +91,6 @@ if (!class_exists('wspc_shop_page_settings')) {
                             
                                 $pro_des_class  = new wspc_product_description_settings();
                                 $pro_des_class->product_description_setting_form_option();
-
                             }
 
 
@@ -107,25 +98,14 @@ if (!class_exists('wspc_shop_page_settings')) {
                             
                                 $pro_version  = new wspc_get_pro_version();
                                 $pro_version->get_pro_version_list();
-                                
-
                             }
                             ?>
-
-                        
                         </div>
-
                     </div>
                 </div>
             </div>
-
         <?php
-
         }
-
-        
     }
-
     new wspc_shop_page_settings();
-
 }
