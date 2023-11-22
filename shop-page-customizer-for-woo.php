@@ -4,7 +4,7 @@ Plugin Name: Shop Page Customizer for WooCommerce
 Description: Woocommerce shop page customizer is an excellent plugin to customize the WooCommerce shop page. It allows you to edit your product title, price add to cart button, sale flash in a few clicks.
 Author: Geek Code Lab
 Version: 1.5
-WC tested up to: 8.2.2
+WC tested up to: 8.3.0
 Author URI: https://geekcodelab.com/
 Text Domain : woocommerce-shop-page-customizer
 
@@ -25,14 +25,34 @@ define("wspc_BUILD", '1.5');
 
 register_activation_hook( __FILE__, 'wspc_plugin_active_woocommerce_shop_page_customizer' );
 function wspc_plugin_active_woocommerce_shop_page_customizer(){
-	$error	=	'required <b>woocommerce</b> plugin.';	
-	if ( !class_exists( 'WooCommerce' ) ) {
-	   die('Plugin NOT activated: ' . $error);
-	}
 	if (is_plugin_active( 'shop-page-customizer-for-woo-pro/shop-page-customizer-for-woo-pro.php' ) ) {		
 		deactivate_plugins('shop-page-customizer-for-woo-pro/shop-page-customizer-for-woo-pro.php');
    	}
 }
+
+/** Trigger an admin notice if WooCommerce is not installed.*/
+if ( ! function_exists( 'wspc_install_woocommerce_admin_notice' ) ) {
+	function wspc_install_woocommerce_admin_notice() { ?>
+		<div class="error">
+			<p>
+				<?php
+				// translators: %s is the plugin name.
+				echo esc_html( sprintf( __( '%s is enabled but not effective. It requires WooCommerce in order to work.', 'woocommerce-shop-page-customizer' ), 'Shop Page Customizer for WooCommerce' ) );
+				?>
+			</p>
+		</div>
+		<?php
+	}
+}
+function wspc_woocommerce_constructor() {
+    // Check WooCommerce installation
+	if ( ! function_exists( 'WC' ) ) {
+		add_action( 'admin_notices', 'wspc_install_woocommerce_admin_notice' );
+		return;
+	}
+
+}
+add_action( 'plugins_loaded', 'wspc_woocommerce_constructor' );
 
 require_once( WSPC_PLUGIN_DIR_PATH .'admin/options.php');
 require_once( WSPC_PLUGIN_DIR_PATH . 'admin/product-loop-description-meta.php' );
