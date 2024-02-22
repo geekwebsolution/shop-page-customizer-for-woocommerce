@@ -243,7 +243,7 @@ if ( !function_exists( 'woo_shop_page_customizer_style_build' ) && class_exists(
             $mod = $wspc_shop_page_option[$setting];
 
             woo_shop_customizer_style_library_Styles()->add( array(
-                'selectors'    => array( 'body.woocommerce-shop .woocommerce-breadcrumb' ),
+                'selectors'    => array( 'body.woocommerce-shop .woocommerce-breadcrumb, body.woocommerce.archive .woocommerce-breadcrumb' ),
                 'declarations' => array(
                 'display' => 'none',
             ),

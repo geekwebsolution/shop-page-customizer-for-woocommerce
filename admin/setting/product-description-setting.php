@@ -48,7 +48,7 @@ if (!class_exists('wspc_product_description_settings')) {
 
             add_settings_field(
                 'enable_description_for_loop',
-                __('Select Pages to Enable Description', 'woocommerce-shop-page-customizer'),
+                __('Enable Product Description', 'woocommerce-shop-page-customizer'),
                 array($this, 'hide_product_meta_html'),
                 'wspc_loop_product_description_section',
                 'wspc_product_description_setting',

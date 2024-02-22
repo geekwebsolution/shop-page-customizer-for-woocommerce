@@ -2,11 +2,11 @@
 Contributors: rajkakadiya, rvadhel
 Donate link: https://paypal.me/rvadhel
 Tags: WooCommerce, WooCommerce shop, shop page customizer, customizer
-Requires PHP: 5.2.4
-Requires at least: 3.0.1
-Tested up to: 6.4.1
-WC tested up to: 8.3.0
-Stable tag: 1.5
+Requires PHP: 7.4
+Requires at least: 6.4
+Tested up to: 6.4.2
+WC tested up to: 8.6.0
+Stable tag: 1.6
 License: GPLv2 or later
 
 WooCommerce has lots of filters to let you customize button text, labels, and more, for that you have to write code to use them. This plugin provides you setting page where you can customize Product loop Setting, Shop page setting, Product description.
@@ -89,6 +89,9 @@ After Plugin Active go to WooCommerce-> Woocommerce Shop Page Customizer. Or go 
 5. Pro Plugin Features
 
 == Changelog ==
+= 1.6 =
+ Fixed bugs
+ 
 = 1.5 =
  Added woocommerce HPOS support.
  Tested up to 6.4 wordpress version.
