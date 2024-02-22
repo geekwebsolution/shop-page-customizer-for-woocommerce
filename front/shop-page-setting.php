@@ -74,7 +74,7 @@ if (!class_exists('wspc_front_shop_page_settings') ) {
         /** remove title */
         function wspc_remove_shop_title( $title ){
             
-            if ( is_shop() ) {
+            if ( is_shop() || is_product_category() ) {
                 $title = false;
             }
             return esc_html( $title );

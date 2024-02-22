@@ -3,8 +3,8 @@
 Plugin Name: Shop Page Customizer for WooCommerce
 Description: Woocommerce shop page customizer is an excellent plugin to customize the WooCommerce shop page. It allows you to edit your product title, price add to cart button, sale flash in a few clicks.
 Author: Geek Code Lab
-Version: 1.5
-WC tested up to: 8.3.0
+Version: 1.6
+WC tested up to: 8.6.0
 Author URI: https://geekcodelab.com/
 Text Domain : woocommerce-shop-page-customizer
 
@@ -20,7 +20,7 @@ if (!defined("WSPC_PLUGIN_URL"))
     
     define("WSPC_PLUGIN_URL", plugins_url() . '/' . basename(dirname(__FILE__)));
     
-define("wspc_BUILD", '1.5');
+define("wspc_BUILD", '1.6');
 
 
 register_activation_hook( __FILE__, 'wspc_plugin_active_woocommerce_shop_page_customizer' );
@@ -61,11 +61,10 @@ require_once( WSPC_PLUGIN_DIR_PATH .'/customizer/customizer-library/customizer-l
 require_once( WSPC_PLUGIN_DIR_PATH .'/customizer/styles.php');
 
 
-add_action('admin_print_styles', 'wspc_admin_style');
+add_action('admin_enqueue_scripts', 'wspc_admin_enqueue_scripts');
 
-function wspc_admin_style(){
-
-	if (is_admin()) {
+function wspc_admin_enqueue_scripts($hook){
+	if ($hook == 'woocommerce_page_wspc-option-page') {
 		$js		=	WSPC_PLUGIN_URL.'/assets/js/admin_script.js';
 		wp_enqueue_style('wspc_admin_style', WSPC_PLUGIN_URL . '/assets/css/admin-style.css' , '',wspc_BUILD);
 		wp_enqueue_style('wp-color-picker');
