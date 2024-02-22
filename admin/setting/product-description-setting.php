@@ -156,7 +156,8 @@ if (!class_exists('wspc_product_description_settings')) {
             $value = isset($wspc_loop_description_options[$args['label_for']]) ? $wspc_loop_description_options[$args['label_for']] : '';
             ?>
             <div class="wspc-pro-feature-feild">
-                <input type="number" name="wspc_product_loop_description_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>">
+                <input type="number" name="wspc_product_loop_description_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>" min="0" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
                 <span class="wspc-pro"><?php _e('pro','woocommerce-shop-page-customizer'); ?></span>
             </div>
             <p  class="wspc-input-note"><?php esc_html('Set the characters limit. Set "0" to show all.(Works for product short & detail description).','woocommerce-shop-page-customizer') ?></p>
@@ -170,7 +171,8 @@ if (!class_exists('wspc_product_description_settings')) {
             $value = isset($wspc_loop_description_options[$args['label_for']]) ? $wspc_loop_description_options[$args['label_for']] : '';
             ?>
             <div class="wspc-pro-feature-feild">
-            <input type="number" name="wspc_product_loop_description_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>">
+            <input type="number" name="wspc_product_loop_description_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>" min="0" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
             <span class="wspc-pro"><?php _e('pro','woocommerce-shop-page-customizer'); ?></span>
             </div>            
             <p class="wspc-input-note"><?php esc_attr_e($args['description'],'woocommerce-shop-page-customizer') ?></p>

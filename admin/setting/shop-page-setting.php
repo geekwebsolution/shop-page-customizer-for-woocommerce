@@ -127,7 +127,8 @@ if (!class_exists('wspc_shop_page_customizer_settings')) {
             global $wspc_list_page_options;
             $value = isset($wspc_list_page_options[$args['label_for']]) ? $wspc_list_page_options[$args['label_for']] : '';
             ?>
-            <input type="number" name="wspc_shop_page_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>">
+            <input type="number" name="wspc_shop_page_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>" min="0" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
             <p class="wspc-input-note"><?php esc_attr_e($args['description'],'woocommerce-shop-page-customizer') ?></p>
             <?php
         }

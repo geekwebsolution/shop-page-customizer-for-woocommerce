@@ -404,7 +404,8 @@ if (!class_exists('wspc_design_elements_settings')) {
             global $wspc_des_ele_options;
 
             $value = isset($wspc_des_ele_options[$args['label_for']]) ? $wspc_des_ele_options[$args['label_for']] : ''; ?>
-            <input type="number" name="wspc_desgin_elements_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>">
+            <input type="number" name="wspc_desgin_elements_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" value="<?php _e($value); ?>" min="0" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
             <p class="wspc-input-note"><?php esc_attr_e($args['description'],'woocommerce-shop-page-customizer') ?></p>
             <?php
         }
@@ -413,7 +414,8 @@ if (!class_exists('wspc_design_elements_settings')) {
             global $wspc_des_ele_options;
 
             $value = isset($wspc_des_ele_options[$args['label_for']]) ? $wspc_des_ele_options[$args['label_for']] : ''; ?>
-            <input type="number" name="wspc_desgin_elements_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" min="100" max="700" step="100" value="<?php _e($value); ?>">
+            <input type="number" name="wspc_desgin_elements_options[<?php esc_attr_e( $args['label_for'] ); ?>]" id="<?php esc_attr_e( $args['label_for'] ); ?>" min="100" max="700" step="100" value="<?php _e($value); ?>" min="0" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
             <p class="wspc-input-note"><?php esc_attr_e($args['description'],'woocommerce-shop-page-customizer') ?></p>
             <?php
         }
