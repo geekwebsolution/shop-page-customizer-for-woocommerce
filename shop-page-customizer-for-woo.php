@@ -37,7 +37,7 @@ if ( ! function_exists( 'wspc_install_woocommerce_admin_notice' ) ) {
 			<p>
 				<?php
 				// translators: %s is the plugin name.
-				echo esc_html( sprintf( __( '%s is enabled but not effective. It requires WooCommerce in order to work.', 'woocommerce-shop-page-customizer' ), 'Shop Page Customizer for WooCommerce' ) );
+				echo esc_html__( sprintf( '%s is enabled but not effective. It requires WooCommerce in order to work.', 'Shop Page Customizer for WooCommerce' ), 'woocommerce-shop-page-customizer' );
 				?>
 			</p>
 		</div>
