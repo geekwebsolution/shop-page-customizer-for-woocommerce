@@ -9,7 +9,7 @@ WC tested up to: 8.6.0
 Stable tag: 1.6
 License: GPLv2 or later
 
-WooCommerce has lots of filters to let you customize button text, labels, and more, for that you have to write code to use them. This plugin provides you setting page where you can customize Product loop Setting, Shop page setting, Product description.
+This plugin provides you settings page where you can customize Product loop Settings, Shop page settings, and Product descriptions.
 
 == Description ==
 
