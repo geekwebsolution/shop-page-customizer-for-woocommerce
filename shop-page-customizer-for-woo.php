@@ -3,7 +3,7 @@
 Plugin Name: Shop Page Customizer for WooCommerce
 Description: Woocommerce shop page customizer is an excellent plugin to customize the WooCommerce shop page. It allows you to edit your product title, price add to cart button, sale flash in a few clicks.
 Author: Geek Code Lab
-Version: 1.6
+Version: 1.7
 WC tested up to: 8.6.0
 Author URI: https://geekcodelab.com/
 Text Domain : woocommerce-shop-page-customizer
@@ -23,7 +23,7 @@ if (!defined("WSPC_PLUGIN_URL"))
 if (!defined("WSPC_PLUGIN_DIR")) define("WSPC_PLUGIN_DIR", plugin_basename(__DIR__));
 if (!defined("WSPC_PLUGIN_BASENAME")) define("WSPC_PLUGIN_BASENAME", plugin_basename(__FILE__));
     
-define("wspc_BUILD", '1.6');
+define("wspc_BUILD", '1.7');
 
 require(SMMGK_PATH . 'updater/updater.php');
 

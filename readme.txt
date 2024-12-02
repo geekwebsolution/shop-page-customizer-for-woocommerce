@@ -6,7 +6,7 @@ Requires PHP: 7.4
 Requires at least: 6.4
 Tested up to: 6.4.2
 WC tested up to: 8.6.0
-Stable tag: 1.6
+Stable tag: 1.7
 License: GPLv2 or later
 
 This plugin provides you settings page where you can customize Product loop Settings, Shop page settings, and Product descriptions.
@@ -89,6 +89,10 @@ After Plugin Active go to WooCommerce-> Woocommerce Shop Page Customizer. Or go 
 5. Pro Plugin Features
 
 == Changelog ==
+= 1.7 =
+ Fix Bug
+ Added auto updated function
+ 
 = 1.6 =
  Fixed bugs
  
