@@ -19,16 +19,23 @@ if (!defined("WSPC_PLUGIN_DIR_PATH"))
 if (!defined("WSPC_PLUGIN_URL"))
     
     define("WSPC_PLUGIN_URL", plugins_url() . '/' . basename(dirname(__FILE__)));
+
+if (!defined("WSPC_PLUGIN_DIR")) define("WSPC_PLUGIN_DIR", plugin_basename(__DIR__));
+if (!defined("WSPC_PLUGIN_BASENAME")) define("WSPC_PLUGIN_BASENAME", plugin_basename(__FILE__));
     
 define("wspc_BUILD", '1.6');
 
+require(SMMGK_PATH . 'updater/updater.php');
 
 register_activation_hook( __FILE__, 'wspc_plugin_active_woocommerce_shop_page_customizer' );
 function wspc_plugin_active_woocommerce_shop_page_customizer(){
+	wspc_updater_activate();
 	if (is_plugin_active( 'shop-page-customizer-for-woo-pro/shop-page-customizer-for-woo-pro.php' ) ) {		
 		deactivate_plugins('shop-page-customizer-for-woo-pro/shop-page-customizer-for-woo-pro.php');
    	}
 }
+
+add_action('upgrader_process_complete', 'wspc_updater_activate'); // remove  transient  on plugin  update
 
 /** Trigger an admin notice if WooCommerce is not installed.*/
 if ( ! function_exists( 'wspc_install_woocommerce_admin_notice' ) ) {
