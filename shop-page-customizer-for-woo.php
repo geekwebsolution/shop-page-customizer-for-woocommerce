@@ -12,20 +12,18 @@ Text Domain : woocommerce-shop-page-customizer
 
 if (!defined('ABSPATH')) exit;
 
-if (!defined("WSPC_PLUGIN_DIR_PATH"))
+if (!defined("WSPC_PLUGIN_DIR_PATH")) define("WSPC_PLUGIN_DIR_PATH", plugin_dir_path(__FILE__));
 
-	define("WSPC_PLUGIN_DIR_PATH", plugin_dir_path(__FILE__));
-
-if (!defined("WSPC_PLUGIN_URL"))
-    
-    define("WSPC_PLUGIN_URL", plugins_url() . '/' . basename(dirname(__FILE__)));
+if (!defined("WSPC_PLUGIN_URL")) define("WSPC_PLUGIN_URL", plugins_url() . '/' . basename(dirname(__FILE__)));
+	
+if (!defined("WSPC_PATH"))  define('WSPC_PATH', plugin_dir_path(__FILE__));
 
 if (!defined("WSPC_PLUGIN_DIR")) define("WSPC_PLUGIN_DIR", plugin_basename(__DIR__));
 if (!defined("WSPC_PLUGIN_BASENAME")) define("WSPC_PLUGIN_BASENAME", plugin_basename(__FILE__));
     
 define("wspc_BUILD", '1.7');
 
-require(SMMGK_PATH . 'updater/updater.php');
+require(WSPC_PATH . 'updater/updater.php');
 
 register_activation_hook( __FILE__, 'wspc_plugin_active_woocommerce_shop_page_customizer' );
 function wspc_plugin_active_woocommerce_shop_page_customizer(){
